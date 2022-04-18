@@ -1,7 +1,15 @@
+import { Fragment } from 'react';
 import './App.css';
+import Header from './components/Header';
+import Todos from './components/Todos';
 
 const App = () => {
-  return <p>This is my first react app</p>
+  return (
+    <Fragment>
+      <Header />
+      <Todos />
+    </Fragment>
+  )
 }
 
 export default App;
