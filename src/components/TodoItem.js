@@ -30,11 +30,11 @@ const TodoItem = (props) => {
               onChange={markComplete.bind(this, todo.id)}
               checked={todo.completed}
           />
-          {todo.tittle}
+          {todo.title}
           <button
             style={deleteButtonStyle}
             onClick={deleteTodo.bind(this, todo.id)}
-          ></button>
+          >Delete</button>
       </p>
   );
 };

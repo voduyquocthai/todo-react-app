@@ -1,10 +1,24 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import AddTodo from './AddTodo'
 import axios from 'axios'
 import TodoItem from './TodoItem'
 
 const Todos = () => {
   const [todosState, setTodosState] = useState([])
+
+  useEffect(() => {
+    const getTodos = async () => {
+      try {
+        const res = await axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10');
+
+        setTodosState(res.data);
+      } catch (error) {
+        console.log(error.message)
+      }
+    }
+
+    getTodos();
+  }, [])
 
   const markComplete = id => {
     const newTodos = todosState.map(todo => {
@@ -47,7 +61,7 @@ const Todos = () => {
         {todosState.map(todo => {
           return (
             <TodoItem 
-              key={todo.is}
+              key={todo.id}
               todo={todo}
               markCompleteFunc={markComplete}
               deleteTodoFunc={deleteTodo}

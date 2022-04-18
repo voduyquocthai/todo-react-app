@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 const AddTodo = (props) => {
   const addTodo = props.addTodoFunc;
 
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState('');
 
   const addTodoFormStyle = {
     display: "flex",
@@ -16,7 +16,7 @@ const AddTodo = (props) => {
   };
 
   const changeTitle = (event) => {
-    setTitle(event.target);
+    setTitle(event.target.value);
   };
 
   const addSingleTodo = (event) => {
